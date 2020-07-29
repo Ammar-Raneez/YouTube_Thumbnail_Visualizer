@@ -12,7 +12,7 @@ function MainContainer() {
                     thumbnailUrl="https://biteable.com/content/uploads/2017/07/Video-Thumbnails-sml-1280x995.55555555556-c-default.jpg" 
                     channelImageUrl="https://biteable.com/content/uploads/2017/07/Video-Thumbnails-sml-1280x995.55555555556-c-default.jpg"
                 />
-                <VideoCard title="Test Video" channelName="Some channel" noOfViews="5.2M Views" postedDate="3 Days ago"
+                <VideoCard title="Test Video" channelName="Some channel" noOfViews="5.2M Views" postedDate="3 Days ago" isCustom={true}
                     thumbnailUrl="https://biteable.com/content/uploads/2017/07/Video-Thumbnails-sml-1280x995.55555555556-c-default.jpg" 
                     channelImageUrl="https://biteable.com/content/uploads/2017/07/Video-Thumbnails-sml-1280x995.55555555556-c-default.jpg"
                 />            

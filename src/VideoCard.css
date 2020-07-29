@@ -10,6 +10,8 @@
 
 .videoCard__thumbnail {
     width: 100%;
+    min-height: 150px;
+    max-height: 150px;
 }
 
 .videoCard__info {

@@ -1,11 +1,69 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './VideoCard.css'
+import Modal from '@material-ui/core/Modal';
+import { TextField, makeStyles, Button } from '@material-ui/core';
+
+function getModalStyle() {
+    const top = 50;
+    const left = 50;
+
+    return {
+        top: `${top}%`,
+        left: `${left}%`,
+        transform: `translate(-${top}%, -${left}%)`,
+    };
+}
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        position: 'absolute',
+        width: 400,
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
+}));
+
 
 //individual videos
-function VideoCard({ thumbnailUrl, channelImageUrl, postedDate, title, channelName, noOfViews }) {
+function VideoCard({ thumbnailUrl, channelImageUrl, postedDate, isCustom, title, channelName, noOfViews }) {
+    const classes = useStyles();
+
+    const [input, setInput] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
+
+    const [thumbTitle, setThumbTitle] = useState('');
+    const [titleInput, setTitleInput] = useState('');
+
+    const [open, setOpen] = useState(false);
+    const [modalStyle] = React.useState(getModalStyle);
+
+
+    const handleClose = event => {
+        event.preventDefault();
+        setImageUrl(input);
+        setThumbTitle(titleInput);
+        setOpen(false);
+    }
+
     return (
         <div className="videoCard">
-            <img className="videoCard__thumbnail" src={thumbnailUrl} alt="Thumbnail" />
+            <Modal open={open} onClose={handleClose}>
+                <div style={modalStyle} className={classes.paper}>
+                    <form>
+                        <TextField placeholder="Image URL" value={input} onChange={event => setInput(event.target.value)}/>
+                        <TextField placeholder="Video Title" value={titleInput} onChange={event => setTitleInput(event.target.value)}/>
+                        <Button type="submit" onClick={handleClose}>Confirm</Button>
+                    </form>
+                </div>
+            </Modal>            
+
+            {isCustom && !imageUrl ? (
+                <button onClick={() => setOpen(true)}>Select Thumbnail</button>
+            ) : 
+                <img className="videoCard__thumbnail" src={imageUrl || thumbnailUrl} alt="Thumbnail" />
+            }
 
             <div className="videoCard__info">
                 <div className="videoCard__channelImgContainer">
@@ -13,7 +71,7 @@ function VideoCard({ thumbnailUrl, channelImageUrl, postedDate, title, channelNa
                 </div>
 
                 <div className="videoCard__infoText">
-                    <p className="videoCard__title">{title}</p>
+                    <p className="videoCard__title">{thumbTitle || title}</p>
                     <p className="videoCard__channelName">{channelName}</p>
                     <p className="videoCard__noOfViewsPostedDate">{noOfViews} • {postedDate}</p>
                 </div>
