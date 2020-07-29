@@ -1,0 +1,47 @@
+.videoCard {
+    /*each card to takes 25% of the mainContainer*/
+    flex: 0.25;
+    /*setting min-width for a card to take 25% of a row, forcing wrapping to next line*/
+    min-width: 23%;
+    /*adding a margin wraps the 4th to the next line, cuz an item already takes 25% adding a margin increases it*/
+    /*so we decrease min-width*/
+    margin: 8px;
+}
+
+.videoCard__thumbnail {
+    width: 100%;
+}
+
+.videoCard__info {
+    display: flex;
+    margin-top: 12px;
+}
+
+.videoCard__title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.videoCard__channelName, .videoCard__noOfViewsPostedDate {
+    color: #606060;
+    font-size: 14px;
+}
+
+.videoCard__infoText {
+    flex: 1;
+    margin-left: 12px;
+}
+
+/*crop trick, we nest the image in a div, and overflow the image to hidden*/
+.videoCard__channelImgContainer {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.videoCard__channelImgContainer > img {
+    width: 100%;
+    height: 100%;
+}

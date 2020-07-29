@@ -1,0 +1,27 @@
+.mainContainer {
+    background-color: #f9f9f9;
+    flex: 0.8;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.mainContainer__title {
+    font-size: 20px;
+    margin-left: 4px;
+    margin-bottom: 12px;
+}
+
+.mainContainer__videos {
+    /*flex values range from 0 to 1*/
+    flex: 0.8;      /*take 80% of app_page*/
+
+    /*align the video cards horizontally*/
+    display: flex;
+
+/*with this rule we can make the videocards to take the actual height of its content, dynamicity*/
+    align-items: flex-start;
+/*wraps elements to next line*/
+    flex-wrap: wrap;
+
+    background-color: #f9f9f9;
+}
