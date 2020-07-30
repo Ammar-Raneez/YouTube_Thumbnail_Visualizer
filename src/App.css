@@ -5,13 +5,14 @@
 .app {
 	/*give the entire app div as height 100vh, so that it takes the full height of the page at all times*/
 	height: 100vh;
-	/*display flex so that the header and container as in a flexbox, with column directions*/
+	/*display flex so that the header and container are in a flexbox, with column directions*/
 	display: flex;
 	flex-direction: column;
 }
 
 .app__page {
-	/*set the main container to take as much space as it wants*/
+	/*set the main container to take as much space as it wants, and the header to take the least*/
+	/*so we end up with the mainContainer stretching from the end of the header till the end of the page*/
 	display: flex;	/*display flex here cuz w want the Sidebar and mainContainer to be horizontal*/
 	flex: 1;
 }

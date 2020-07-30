@@ -35,7 +35,8 @@
     margin-left: 12px;
 }
 
-/*crop trick, we nest the image in a div, and overflow the image to hidden*/
+/*crop trick, we nest the image in a div, set the image to take the entire size of the div (h and w of 100%),
+and overflow the image to hidden*/
 .videoCard__channelImgContainer {
     height: 36px;
     width: 36px;

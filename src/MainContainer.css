@@ -1,6 +1,6 @@
 .mainContainer {
     background-color: #f9f9f9;
-    flex: 0.8;
+    flex: 0.8;  /*take up 80% of the 100% width, while the sidebar takes 20%*/
     padding-left: 20px;
     padding-top: 20px;
 }
@@ -18,9 +18,9 @@
     /*align the video cards horizontally*/
     display: flex;
 
-/*with this rule we can make the videocards to take the actual height of its content, dynamicity*/
+/*with this rule we can make the videocards to take the actual height of its content, dynamically*/
     align-items: flex-start;
-/*wraps elements to next line*/
+/*wraps elements to next line, rather than squeezing em all in the same line, if it passes the max-width*/
     flex-wrap: wrap;
 
     background-color: #f9f9f9;
